@@ -1,0 +1,26 @@
+
+.signup{
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup-dev{
+    height: 450px;
+    width: 290px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+.register-form{
+    display: flex;
+    justify-content: center;
+}
+.register-input input{
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+}
