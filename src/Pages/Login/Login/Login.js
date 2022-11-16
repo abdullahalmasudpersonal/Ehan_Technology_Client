@@ -23,6 +23,10 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true });
     }
+    if (error) {
+        errorElement =
+            <p className='text-danger'>{error?.message} </p>
+    }
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -47,7 +51,7 @@ const Login = () => {
                         <input className='fw-bold signup-btn mt-0' type='submit' value='Log In' />
                     </div>
                 </form>
-
+                <p className='text-center'>{errorElement}</p>
                 <div className='d-flex justify-content-center align-items-center mt-3 px-2'>
                     <hr style={{ width: '40%', marginTop:'3px' }} />
                     <p className='mx-2'>OR</p>

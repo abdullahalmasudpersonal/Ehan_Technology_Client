@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import SignUp from './Pages/Login/Signup/SignUp';
+import Footer from './Pages/Shared/Footer/Footer2';
 import Header from './Pages/Shared/Header/Header';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path='/login' element={<Login/>} />
       <Route path='/signup' element={<SignUp/>} />
      </Routes>
+     <Footer/>
     </div>
   );
 }
