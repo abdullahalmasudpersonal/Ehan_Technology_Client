@@ -15,12 +15,20 @@
 .register-form{
     display: flex;
     justify-content: center;
+    padding: 0;
 }
 .register-input input{
     height: 40px;
-    width: 100%;
-    margin-top: 10px;
+    width: 250px;
+    margin-top: 20px;
     border: none;
     border-radius: 50px;
     padding: 10px;
+}
+.signup-btn{
+    background-color: rgb(243, 212, 184);
+    transition: .4s;
+}
+.signup-btn:hover{
+    background-color: rgb(226, 193, 150);
 }

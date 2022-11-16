@@ -14,15 +14,17 @@ const SignUp = () => {
                             <input className='mx-auto' type='text' placeholder='Enter name' required /> <br />
                             <input type='email' placeholder='Enter email' required /> <br />
                             <input type='password' placeholder='Enter password' required /> <br />
-                            <input className='fw-bold' type='submit' value='Sign Up' />
+                            <input className='fw-bold signup-btn' type='submit' value='Sign Up' />
                         </div>
                     </form>
-
-                    <div className='d-flex justify-content-center align-items-center mt-3'>
+                    <small className='text-center '><p className='mt-4'>
+                        Alrady have an account? <span style={{color:'blue'}}>Sign in
+                        </span></p></small>
+                    {/*   <div className='d-flex justify-content-center align-items-center mt-3'>
                         <hr style={{ width: '40%', margin: 'auto',  }} />
                         <p>OR</p>
                         <hr style={{ width: '40%', margin: 'auto',  }} />
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
