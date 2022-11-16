@@ -1,0 +1,27 @@
+
+.social-login {
+    display: flex;
+    justify-content: center;
+}
+
+.social-login p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 80%;
+    background-color: rgb(243, 212, 184);
+    border-radius: 50px;
+    cursor: pointer;
+}
+.social-login p:hover{
+    background-color: rgb(226, 193, 150);
+}
+.reset-pass{
+    color: gray;
+    cursor: pointer;
+    transition: .4s;
+}
+.reset-pass:hover{
+    color: red;
+}

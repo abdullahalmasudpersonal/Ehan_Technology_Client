@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './SignUp.css';
 
 const SignUp = () => {
@@ -18,7 +19,7 @@ const SignUp = () => {
                         </div>
                     </form>
                     <small className='text-center '><p className='mt-4'>
-                        Alrady have an account? <span style={{color:'blue'}}>Sign in
+                        Alrady have an account? <span style={{color:'blue'}}><Link to='/login' className='text-decoration-none'>Login</Link>
                         </span></p></small>
                     {/*   <div className='d-flex justify-content-center align-items-center mt-3'>
                         <hr style={{ width: '40%', margin: 'auto',  }} />

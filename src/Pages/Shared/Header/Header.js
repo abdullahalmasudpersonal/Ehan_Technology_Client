@@ -36,11 +36,11 @@ const Header = () => {
                     </ul>
                     <div>
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active fw-bold">
-                                <Link to='/signup'><a class="nav-link">New Coustomer </a></Link>
+                            <li class="nav-item active fw-bold ">
+                                <Link to='/signup' className='text-decoration-none'><a class="nav-link">New Coustomer </a></Link>
                             </li>
                             <li class="nav-item active fw-bold">
-                                <a class="nav-link" href="#">Log in </a>
+                                <Link to='/login' className='text-decoration-none'><a class="nav-link">Log in </a></Link>
                             </li>
                         </ul>
                     </div>
