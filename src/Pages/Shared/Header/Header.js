@@ -1,9 +1,16 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import './Header.css';
 
 const Header = () => {
-
+    const [user] = useAuthState(auth);
+    console.log(user)
+    const handleSignOut = () => {
+        signOut(auth);
+    }
 
     return (
         <div className='container'>
@@ -41,15 +48,17 @@ const Header = () => {
                             <li class="nav-item active fw-bold ">
                                 <Link to='/signup' className='text-decoration-none'><a class="nav-link">New Coustomer </a></Link>
                             </li>
+                            {
+                                user ? <li class="nav-item active fw-bold">
+                                <Link to='/login' className='text-decoration-none'><a onClick={handleSignOut} class="nav-link">Logout</a></Link>
+                            </li>
+                            :
                             <li class="nav-item active fw-bold">
                                 <Link to='/login' className='text-decoration-none'><a class="nav-link">Log in </a></Link>
                             </li>
+                            }
                         </ul>
                     </div>
-                    {/*  <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form> */}
                 </div>
             </nav>
         </div>

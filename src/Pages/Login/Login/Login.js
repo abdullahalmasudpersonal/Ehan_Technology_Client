@@ -1,9 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import google from '../../../Assets/Img/social_media/google-logo3.png';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Login = () => {
+    const emailRef = useRef('');
+    const passwrodRef = useRef('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    let from = location.state?.from?.pathname || '/';
+    let errorElement;
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+    const handleSubmit = async event => {
+        event.preventDefault();
+        const email = emailRef.current.value;
+        const password = passwrodRef.current.value;
+
+        await signInWithEmailAndPassword(email, password);
+    }
+
     return (
         <div className='container'>
         <div className='signup'>
@@ -11,10 +39,10 @@ const Login = () => {
 
                 <h3 className='fw-bold text-center mt-5'>Log In</h3>
 
-                <form className='register-form'>
+                <form onSubmit={handleSubmit} className='register-form'>
                     <div className='register-input'>
-                        <input type='email' placeholder='Enter email' required /> <br />
-                        <input type='password' placeholder='Enter password' required /> <br />
+                        <input type='email' placeholder='Enter email' ref={emailRef} required /> <br />
+                        <input type='password' placeholder='Enter password' ref={passwrodRef} required /> <br />
                         <p className='text-end mb-2  reset-pass'><small>Reset password?</small></p>
                         <input className='fw-bold signup-btn mt-0' type='submit' value='Log In' />
                     </div>
