@@ -16,6 +16,9 @@ import MyOrder from './Pages/Dashboard/MyOrder';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import AddToCart from './Pages/AddToCart/AddToCart';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
+import Blogs from './Pages/Blogs/Blogs';
+import Contact from './Pages/Contact/Contact';
+import About from './Pages/About/about';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/connect-us' element={<Contact />} />
+        <Route path='/blogs' element={<Blogs />} />
         <Route path='/products/:productsId' element={<ProductDetails />} />
         <Route path='/add-to-cart/:productsId' element={<RequireAuth><AddToCart /></RequireAuth>} />
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
