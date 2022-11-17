@@ -1,10 +1,19 @@
 # Mangrove
 
-## Mangrove live link [Click Here](http://localhost:3000)
+## Mangrove live link [Click Here](https://mangrove50.web.app/)
 
-In the project directory, you can run:
-
-### `npm start`
+### `Use Technology`
+- ReactJs
+- Bootstrap
+- NodeJs
+- MongoDB
+- Firebase
+- React Router dom
+- React Query
+- React Hook Form
+- Axios
+- React firebase hooks
+- React toastify
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
