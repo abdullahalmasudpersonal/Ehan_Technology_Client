@@ -1,25 +1,32 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Product.css';
 
-const Product = () => {
+const Product = ({product}) => {
+    const {_id, name, img, price, brand, available} = product;
+    const navigate = useNavigate();
+
+    const navigateToDetails = _id =>{
+        navigate(`/products/${_id}`);
+    }
 
     return (
         <div>
             <div className='product-dev'>
-                <img className='img-fluid' src='https://www.mobiledokan.com/wp-content/uploads/2022/10/Samsung-Galaxy-A04s.jpg' alt='mobile' />
+                <img className='img-fluid' src={img} alt='mobile' />
                 <div className='px-3'>
-                    <h6 className=''>Samsung Galaxy A04s</h6>
-                    <p className='m-0 fw-bold'>Brand: Samsung</p>
+                    <h6 className=''>{name}</h6>
+                    <p className='m-0 fw-bold'>Brand: {brand}</p>
                     <small>
-                        <p className='m-0 fw-bold'>Price: ৳ 3500</p>
-                        <p className='m-0'>Available: 100 Pics</p>
+                        <p className='m-0 fw-bold'>Price: {price} ৳</p>
+                        <p className='m-0'>Available: {available} Pics</p>
                         <p className='m-0'>Network: 2G, 3G, 4G</p>
                         <p className='m-0'>SIM: Dual Nano SIM</p>
                         <p className='m-0'>Size: 6.5 inches</p>
                     </small>
                 </div>
-                <div className='add-cart-btn-dev'>
-                    <button>Add to cart</button>
+                <div onClick={ () => navigateToDetails(_id)} className='add-cart-btn-dev'>
+                    <button>View Details</button>
                 </div>
             </div>
         </div>
