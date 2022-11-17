@@ -35,7 +35,7 @@ const Header = () => {
                             <a class="nav-link fw-bold">Blog</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link fw-bold">Dashboard</a>
+                         <Link to='/dashboard' className='text-decoration-none'><a class="nav-link fw-bold">Dashboard</a></Link>
                         </li>
                     </ul>
                     <div>

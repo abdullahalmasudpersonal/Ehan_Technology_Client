@@ -8,9 +8,9 @@ const ProductDetails = () => {
     const [products] = UseProductDetails(productsId);
     const navigate = useNavigate();
 
-    /*  const navigateToBuyNow = id =>{
-         navigate(`/path/${id}`);
-     } */
+      const navigateToBuyNow = id =>{
+         navigate(`/add-to-cart/${id}`);
+     } 
 
     return (
         <div className='container'>
@@ -146,7 +146,7 @@ const ProductDetails = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <button>Add To Cart</button>
+                    <button onClick={() => navigateToBuyNow(products._id)}>Add To Cart</button>
                 </div>
             </div>
         </div>

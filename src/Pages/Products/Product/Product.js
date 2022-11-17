@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Product.css';
 
 const Product = ({product}) => {
-    const {_id, name, img, price, brand, available} = product;
+    const {_id, name, img, price, brand, available, network} = product;
     const navigate = useNavigate();
 
     const navigateToDetails = _id =>{
@@ -20,7 +20,7 @@ const Product = ({product}) => {
                     <small>
                         <p className='m-0 fw-bold'>Price: {price} ৳</p>
                         <p className='m-0'>Available: {available} Pics</p>
-                        <p className='m-0'>Network: 2G, 3G, 4G</p>
+                        <p className='m-0'>Network: {network}</p>
                         <p className='m-0'>SIM: Dual Nano SIM</p>
                         <p className='m-0'>Size: 6.5 inches</p>
                     </small>
