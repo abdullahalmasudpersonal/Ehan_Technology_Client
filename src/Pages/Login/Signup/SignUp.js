@@ -16,15 +16,21 @@ const SignUp = () => {
     const location = useLocation();
 
     let from = location.state?.from?.pathname || '/';
+    let errorElement;
 
     if (user) {
         navigate(from, { replace: true });
     }
-     if (user) {
-         navigate('/');
-     }
+    if (user) {
+        navigate('/');
+    }
 
-    const handleRegister = async (event) =>{
+    if (error) {
+        errorElement =
+            <p className='text-danger'>{error?.message} </p>
+    }
+
+    const handleRegister = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
@@ -49,8 +55,9 @@ const SignUp = () => {
                             <input className='fw-bold signup-btn' type='submit' value='Sign Up' />
                         </div>
                     </form>
+                    <p className='text-center'>{errorElement}</p>
                     <small className='text-center '><p className='mt-4'>
-                        Alrady have an account? <span style={{color:'blue'}}><Link to='/login' className='text-decoration-none'>Login</Link>
+                        Alrady have an account? <span style={{ color: 'blue' }}><Link to='/login' className='text-decoration-none'>Login</Link>
                         </span></p></small>
                 </div>
             </div>

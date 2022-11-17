@@ -70,7 +70,7 @@ const Login = () => {
                     <p onClick={() => signInWithGoogle()} className='text-center'><img width='35px' src={google} alt='google' />Continue With Google</p>
                 </div>
 
-                <small className='text-center '><p className='mt-4'>
+                <small className='text-center '><p className=''>
                     Don't have an account? <span style={{color:'blue'}}><Link to='/signup' className='text-decoration-none'>Create new one
                     </Link> </span></p></small>
             </div>
