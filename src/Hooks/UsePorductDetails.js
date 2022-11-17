@@ -4,7 +4,7 @@ const UseProductDetails = productsId =>{
     const [products, setProducts] = useState({});
 
     useEffect( () =>{
-        const url = `http://localhost:5000/products/${productsId}`;
+        const url = `https://damp-citadel-08566.herokuapp.com/products/${productsId}`;
 
         fetch(url)
         .then(res =>res.json())

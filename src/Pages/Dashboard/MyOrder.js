@@ -12,7 +12,7 @@ const MyOrder = () => {
 
     /*  useEffect(() => {
          if (user) {
-             fetch(`http://localhost:5000/myorder?email=${user.email}`, {
+             fetch(`https://damp-citadel-08566.herokuapp.com/myorder?email=${user.email}`, {
                   method: 'GET',
                  headers: {
                      'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -36,7 +36,7 @@ const MyOrder = () => {
     const handleMyOrderDelete = id => {
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            const url = `http://localhost:5000/myorder/${id}`;
+            const url = `https://damp-citadel-08566.herokuapp.com/myorder/${id}`;
             console.log('masud', url)
             fetch(url, {
                 method: 'DELETE'
@@ -54,7 +54,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/myorder?email=${user.email}`)
+            fetch(`https://damp-citadel-08566.herokuapp.com/myorder?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => setOrders(data));
         }

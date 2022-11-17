@@ -1,8 +1,6 @@
-# Getting Started with Create React App
+# Mangrove
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## Mangrove live link [Click Here](http://localhost:3000)
 
 In the project directory, you can run:
 

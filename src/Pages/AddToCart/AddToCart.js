@@ -24,7 +24,7 @@ const AddToCart = () => {
             orderQuentity: event.target.orderQuentity.value,
             phone: event.target.phone.value
         }
-        axios.post('http://localhost:5000/order', order)
+        axios.post('https://damp-citadel-08566.herokuapp.com/order', order)
             .then(response => {
                 console.log(response)
                 const { data } = response;
