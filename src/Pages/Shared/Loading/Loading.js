@@ -1,11 +1,13 @@
 import React from 'react';
-import { Spinner } from 'react-bootstrap';
 import './Loading.css';
 
 const Loading = () => {
     return (
         <div className='loading'>
-            <Spinner animation="border" variant="primary" />
+            {/* <Spinner animation="border" variant="primary" /> */}
+            <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
     );
 };

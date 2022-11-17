@@ -4,6 +4,8 @@ import './Login.css';
 import google from '../../../Assets/Img/social_media/google-logo3.png';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import Loading from '../../Shared/Loading/Loading';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -17,13 +19,19 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+
     let from = location.state?.from?.pathname || '/';
     let errorElement;
 
-    if (user) {
+    if(loading || gloading){
+        return <Loading/>
+    }
+
+    if (user || guser) {
         navigate(from, { replace: true });
     }
-    if (error) {
+    if (error || gerror) {
         errorElement =
             <p className='text-danger'>{error?.message} </p>
     }
@@ -59,7 +67,7 @@ const Login = () => {
                 </div>
 
                 <div className='social-login'>
-                    <p className='text-center'><img width='35px' src={google} alt='google' />Continue With Google</p>
+                    <p onClick={() => signInWithGoogle()} className='text-center'><img width='35px' src={google} alt='google' />Continue With Google</p>
                 </div>
 
                 <small className='text-center '><p className='mt-4'>

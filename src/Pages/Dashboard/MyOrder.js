@@ -5,34 +5,34 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../src/firebase.init';
 
 const MyOrder = () => {
-    const [user] = useAuthState(auth);
+    /* const [user] = useAuthState(auth);
     const [orders, setOrders] = useState([]);
-    const navigate = useNavigate();
+    const navigate = useNavigate(); */
 
-    useEffect(() => {
-        if (user) {
-            fetch(`http://localhost:5000/myorder?email=${user.email}`, {
-                method: 'GET',
-                headers: {
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then(res => {
-                    console.log('res', res);
-                    if (res.status === 401 || res.status === 403) {
-                        signOut(auth);
-                        localStorage.removeItem('accesToken');
-                        navigate('/');
-                    }
-                    return res.json()
-                })
-                .then(data => {
-                    setOrders(data);
-                });
-        }
-    }, [user])
+    /*  useEffect(() => {
+         if (user) {
+             fetch(`http://localhost:5000/myorder?email=${user.email}`, {
+                  method: 'GET',
+                 headers: {
+                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                 } 
+             })
+                 .then(res => {
+                     console.log('res', res);
+                      if (res.status === 401 || res.status === 403) {
+                         signOut(auth);
+                         localStorage.removeItem('accesToken');
+                         navigate('/');
+                     } 
+                     return res.json()
+                 })
+                 .then(data => {
+                     setOrders(data);
+                 });
+         }
+     }, [user]) */
 
-    const handleMyOrderDelete = id => {
+    /* const handleMyOrderDelete = id => {
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
             const url = `http://localhost:5000/myorder/${id}`;
@@ -47,7 +47,18 @@ const MyOrder = () => {
                     setOrders(remaining);
                 })
         }
-    }
+    } */
+
+    const [orders, setOrders] = useState([]);
+    const [user] = useAuthState(auth);
+
+    useEffect(() => {
+        if (user) {
+            fetch(`http://localhost:5000/order?email=${user.email}`)
+                .then(res => res.json())
+                .then(data => setOrders(data));
+        }
+    }, [user])
 
 
     return (
@@ -75,15 +86,15 @@ const MyOrder = () => {
                                     <tr key={order._id}>
                                         <th scope="row">{index + 1}</th>
                                         <td>{order.product}</td>
-                                        <td>{order.minOrder} Ps</td>
+                                        <td>{order.orderQuentity} Ps</td>
                                         <td>{order.productPrice} $</td>
-                                        <td>{(order.productPrice && !order.paid) && <button onClick={() => handleMyOrderDelete(order._id)} className=' order-calcel-btn'>Cancel</button>}</td>
+                                        {/* <td>{(order.productPrice && !order.paid) && <button onClick={() => handleMyOrderDelete(order._id)} className=' order-calcel-btn'>Cancel</button>}</td> */}
                                         {/* <td>{(order.productPrice && !order.paid) && <Link  /> <button className='order-payment-btn'>Pay</button>}</td> */}
 
-                                        <td>
+                                        {/* <td>
                                             {(order.productPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='order-payment-btn'>Pay</button></Link>}
                                             {(order.productPrice && order.paid) && <p className='text-success'>Paid</p>}
-                                            </td>
+                                            </td> */}
                                     </tr>)}
                             </tbody>
                         </table>
