@@ -3,8 +3,8 @@ import './Contact.css';
 
 const Contact = () => {
     return (
-        <div className='d-flex justify-content-center align-items-center'>
-            <p><small>Blogs comming soon...</small></p>
+        <div className='d-flex justify-content-center align-items-center contact'>
+            <p><small>Connect Us</small></p>
         </div>
     );
 };
