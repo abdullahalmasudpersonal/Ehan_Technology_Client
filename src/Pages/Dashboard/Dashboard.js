@@ -30,10 +30,6 @@ const Dashboard = () => {
                                 <li className='dashboard-list-item ps-3 mb-2'>Add Product
                                 </li>
                             </Link>
-                            <Link to='/dashboard/order-history' className='text-decoration-none'>
-                                <li className='dashboard-list-item ps-3 mb-2'>Payment History
-                                </li>
-                            </Link>
                         </ul>
                     </div>
                 </div>

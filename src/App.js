@@ -34,9 +34,8 @@ function App() {
         <Route path='/add-to-cart/:productsId' element={<RequireAuth><AddToCart /></RequireAuth>} />
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<Profile />} />
-          <Route path='my-order' element={<MyOrder />} />
-          <Route path='my-order' element={<MyOrder />} />
           <Route path='add-product' element={<AddProduct />} />
+          <Route path='my-order' element={<MyOrder />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
